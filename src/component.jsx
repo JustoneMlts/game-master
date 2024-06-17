@@ -96,13 +96,13 @@ export default function Component() {
       <div className="w-full p-4 flex items-center mb-4">
         <img src={Logo} className="h-24 w-24 transform" style={{ transform: 'rotate(-15deg)' }} />
         <div className="w-full mr-24 flex justify-center">
-          <h3 className="text-lg font-bold"> Assignateurs de Game Masters</h3>
+          <h3 className="text-lg font-bold"> Assignateur de Game Masters</h3>
         </div>  
       </div>
       <div className="max-w-4xl w-full px-4 sm:px-6 md:px-8">
         <div className="flex justify-between gap-8 mb-8">
           <div className="w-full">
-            <h3 className="text-lg font-bold">Dungeon Masters</h3>
+            <h3 className="text-lg font-bold">Game Masters</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
               {gameMasters.map((master, index) => (
                 <div key={index} className="bg-gray-800 rounded-lg shadow-lg p-2 flex text-center items-center justify-center">
@@ -112,7 +112,7 @@ export default function Component() {
             </div>
           </div>
           <div className="w-full">
-            <h3 className="text-lg font-bold">Room Names</h3>
+            <h3 className="text-lg font-bold">Sessions</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-4 text-center">
               {rooms.map((room, index) => (
                 <div key={index} className="bg-gray-800 rounded-lg shadow-lg p-2 flex items-center justify-center">
