@@ -43,13 +43,13 @@ export default function Component() {
     { id: 12, name: "Mission secrète" }
   ];
 
-  const shuffleGameMasters = () => {
-    return gameMasters.sort(() => Math.random() - 0.5);
+  const shuffleGameMasters = (size) => {
+    return gameMasters.sort(() => Math.random() - 0.5).slice(0, size);
   };
 
   const findGameMastersForRooms = () => {
     const assignments = new Array(rooms.length).fill(null);
-    const availableGameMasters = shuffleGameMasters();
+    const availableGameMasters = shuffleGameMasters(rooms.length);
 
     const assignGameMaster = (roomIndex) => {
         if (roomIndex >= rooms.length) {
@@ -131,24 +131,24 @@ export default function Component() {
           </button>
         </div>
         <div>
-        {(assignments.length === 0 && !impossible) &&
+        {(assignments && assignments.length === 0 && !impossible) &&
           <div className="w-full">
             <div className="w-full text-3xl font-bold text-center"> Appuyez sur le boutton pour assigner les Game Masters ! </div>
           </div>
         }
+          {impossible &&
+            <div className="w-full">
+              <div className="w-full text-3xl font-bold text-center"> Aucun assignement possible avec ces Game Masters </div>
+            </div>
+          }
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-6">
-          {assignments.length > 0 && assignments.map((assignement, index) => (
+          {assignments && assignments.length > 0 && assignments.map((assignement, index) => (
             <div key={index} className="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
               <div className="text-3xl font-bold">{assignement.gameMaster.name}</div>
               <div className="text-2xl font-medium text-center">{assignement.room.name}</div>
             </div>
           )) }
-          {impossible &&
-            <div className="w-full">
-              <div className="w-full text-3xl font-bold"> Aucun assignement possible avec ces Game Masters </div>
-            </div>
-          }
         </div>
       </div>
     </div>
