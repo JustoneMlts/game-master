@@ -95,8 +95,8 @@ export default function Component() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
       <div className="w-full p-4 flex items-center mb-4">
         <img src={Logo} className="h-24 w-24 transform" style={{ transform: 'rotate(-15deg)' }} />
-        <div className="w-full mr-24 flex justify-center">
-          <h3 className="text-lg font-bold"> Assignateur de Game Masters</h3>
+        <div className="w-full md:mr-0 lg:mr-24 flex justify-center">
+          <h3 className="text-lg font-bold flex text-center items-center justify-center"> Assignateur de Game Masters</h3>
         </div>  
       </div>
       <div className="max-w-4xl w-full px-4 sm:px-6 md:px-8">
